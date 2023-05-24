@@ -1,0 +1,30 @@
+import sys
+from PyQt5.QtWidgets import QHBoxLayout,QDesktopWidget,QMainWindow,QApplication,QPushButton,QWidget
+
+def onClickBut():
+    print(widget.x())
+    print(widget.y())
+    print(widget.width())
+    print(widget.height())
+    print('----------------------------------')
+    print(widget.geometry().x())
+    print(widget.geometry().y())
+    print(widget.geometry().width())
+    print(widget.geometry().height())
+    print('----------------------------------')
+    print(widget.frameGeometry().x())
+    print(widget.frameGeometry().y())
+    print(widget.frameGeometry().width())
+    print(widget.frameGeometry().height())
+
+app = QApplication(sys.argv)
+widget = QWidget()
+btn = QPushButton(widget)
+btn.setText('按钮')
+btn.clicked.connect(onClickBut)
+btn.move(24,52)
+widget.resize(300,240)
+widget.move(250,200)
+widget.setWindowTitle('屏幕坐标系')
+widget.show()
+sys.exit(app.exec_())
